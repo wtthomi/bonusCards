@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>My Flask App</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="animated fadeInDown">Wilkommen</h1>
+            <h2 class="animated fadeInUp">Schön, dass du wieder da bist. </h2>
+            </div>
+        </div>
+        <form action="/login" method="POST">
+            <input name="card_id" value="{{ card_id }}">
+            <input type="password" name="password" placeholder="PIN">
+            <button type="submit">Anmelden</button>
+        </form>
+    </div>
+</body>
+</html>
+<style>
+    body {
+        background-color: #fa9898;
+        text-align: center;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin-top: 5%;
+        color: #333;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        animation: fadeInDown 1s ease-in-out;
+    }
+h2 {
+    font-size: 2rem;
+    margin-top: 5%;
+    color: #2d2323;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    animation: fadeInDown 2s ease-in-out;
+}
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 2rem;
+            margin-top: 20%;
+        }
+    }
+
