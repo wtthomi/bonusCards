@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>My Flask App</title>
+</head>
+<body>
+    <div id="message" class="w3-container w3-display-container w3-blue">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <p>{{message}}</p>
+    </div>
+    <script>
+        setTimeout(function(){
+            document.getElementById("message").style.display="none";
+        }, 5000);
+    </script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="animated fadeInDown">Admin Dashboard</h1>
+            </div>
+        </div>
+        <form action="/admin_add" method="POST">
+            <input type="text" name="card_id" placeholder="Card ID">
+            <input type="number" name="points" placeholder="Punkte">
+            <button type="submit">Hinzufügen</button>
+        </form>
+        <form action="/admin_substract" method="POST">
+            <input type="text" name="card_id" placeholder="Card ID">
+            <input type="number" name="points" placeholder="Punkte">
+            <button type="submit">Abziehen</button>
+        </form>
+        <button type="button" className="btn btn-default" onclick="window.location.href='/admin_logout'">Logout</button>
+    </div>
+</body>
+</html>

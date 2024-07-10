@@ -14,27 +14,23 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="animated fadeInDown">Wilkommen, {{ name }}</h1>
-            <h2 class="animated fadeInUp">Du hast dich erfolgreich angemeldet mit der Kart: {{ card_id }}</h2>
-             <h2 class="animated fadeInUp">Du hast {{ points }} <b>APOints</b></h2>
+            <h2 class="animated fadeInUp">Du hast dich erfolgreich angemeldet mit der Karte: {{ card_id }}</h2>
+             <h2 class="animated fadeInUp">Du hast {{ points }} <b>Points</b></h2>
+             {{ progress_bars|safe }}
+             <a href="/logout" class="btn btn-primary">Abmelden</a>
             </div>
         </div>
     </div>
 </body>
 </html>
 <style>
-     .points {
+    .points {
             font-size: 2rem;
             margin-top: 10%;
             color: #2d2323;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
             opacity: 0;
             animation: fadeInDown 2s ease-in;
-        }
-        .progress {
-            margin-top: 10%;
-        }
-        .progress-bar {
-            background-color: #ffcc99;
         }
     body {
         background-color: #fa9898;
@@ -81,3 +77,4 @@ h2 {
             margin-top: 20%;
         }
     }
+
