@@ -1,6 +1,1 @@
-{"_default": 
-    {
-              "1": {"name": "10% Rabatt", "points": 1000}, 
-              "2": {"name": "15% Rabatt", "points": 1200}
-    }
-}
+{"_default": {"1": {"name": "Brot", "points": "921"}, "3": {"name": "1\u20ac Rabattcoupon", "points": "250"}}}

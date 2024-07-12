@@ -3,83 +3,101 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
     <title>My Flask App</title>
+    <style>
+        body {
+            background-color: #74ebd5;
+            background-image: linear-gradient(90deg, #74ebd5 0%, #9face6 100%);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: #4A4A4A;
+            text-shadow: none;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 2%;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2%;
+            animation: fadeInUp 1s ease-out 1s;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2%;
+            animation: fadeInDown 1s ease-out 2s;
+        }
+
+        .container-fluid {
+            padding-top: 5%;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input, button {
+            margin: 10px 0;
+            border-radius: 20px;
+            border: none;
+            padding: 10px;
+            width: 80%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #667eea;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #546de5;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                margin-top: 10%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="animated fadeInDown">Wilkommen</h1>
-            <h2 class="animated fadeInUp">Schön, dass du wieder da bist. </h2>
+                <h1 class="animate__animated animate__fadeInDown">Wilkommen</h1>
+                <h2 class="animate__animated animate__fadeInUp">Schön, dass du wieder da bist.</h2>
             </div>
         </div>
         <form action="/login" method="POST">
-            <input name="card_id" value="{{ card_id }}">
+            <input name="card_id" value="{{ card_id }}" placeholder="Card ID">
             <input type="password" name="password" placeholder="PIN">
-            <button type="submit">Anmelden</button>
+            <button type="submit"><i class="fas fa-sign-in-alt"></i> Anmelden</button>
         </form>
-    </div>
-    <div class="row">
-        <h3 class="animated fadeInDown">{{ nachricht }}</h3>
+        <h3 class="animate__animated animate__fadeInDown">{{ nachricht }}</h3>
     </div>
 </body>
 </html>
-<style>
-    body {
-        background-color: #fa9898;
-        text-align: center;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
 
-    h1 {
-        font-size: 4rem;
-        margin-top: 5%;
-        color: #333;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        opacity: 0;
-        animation: fadeInDown 1s ease-in-out;
-    }
-h2 {
-    font-size: 2rem;
-    margin-top: 5%;
-    color: #2d2323;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    animation: fadeInDown 2s ease-in-out;
-}
-h3 {
-    font-size: 1.5rem;
-    margin-top: 5%;
-    color: #2d2323;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    animation: fadeInDown 3s ease-in-out;
-}
-    @keyframes fadeInDown {
-        0% {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 3rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        h1 {
-            font-size: 2rem;
-            margin-top: 20%;
-        }
-    }
 

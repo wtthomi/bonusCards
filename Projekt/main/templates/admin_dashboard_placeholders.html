@@ -10,6 +10,15 @@
     <title>My Flask App</title>
 </head>
 <body>
+    <div id="message" class="w3-container w3-display-container w3-blue">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <p>{{ msg }}</p>
+    </div>
+    <script>
+        setTimeout(function(){
+            document.getElementById("message").style.display="none";
+        }, 5000);
+    </script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -27,6 +36,16 @@
             <button type="submit">Abziehen</button>
         </form>
     </div>
+                <form action="/admin_substract" method="POST">
+                <input value = "{{ card_id }}" type="text" name="card_id" placeholder="Card ID">
+                <select name="points">
+                    {% for winning in winnings %}
+                    <option value="{{ winning['points'] }}">{{ winning['name'] }} für {{ winning['points'] }} Punkte</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Abziehen</button>
+                </form>
     <button type="button" className="btn btn-default" onclick="window.location.href='/admin_logout'">Logout</button>
+    <button type="button" className="btn btn-default" onclick="window.location.href='/admin_winnings'">Zum Gewinn Management</button>
 </body>
 </html>

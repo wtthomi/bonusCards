@@ -10,12 +10,28 @@
     <title>My Flask App</title>
 </head>
 <body>
+    <script>
+        function PointUpdater(){
+            const request = new Request("/cardPoints", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ card_id: document.getElementById('card_id').value }),
+});
+fetch(request)
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('points').innerHTML = data;
+  })
+}
+    </script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="animated fadeInDown">Willkommen bei APOints!</h1>
             </div>
         </div>
+        <input onChange="PointUpdater()" type="text" name="card_id" id="card_id" placeholder="Card ID" autofocus>
+        <p id="points"></p>
         <div class="row">
             <div class="col-md-12">
                 <a href="/login" class="btn btn-primary">Login</a>

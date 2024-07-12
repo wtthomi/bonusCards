@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>My Flask App</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="animated fadeInDown">Admin Gewinnverwaltung</h1>
+            </div>
+        </div>
+        <form action="/admin_deletewinning" method="POST">
+            <select name="winning_name">
+                {% for winning in winnings %}
+                <option value="{{ winning['name'] }}">{{ winning['name'] }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Löschen</button>
+        </form>
+        <form action="/admin_addwinning" method="POST">
+            <input type="text" name="winning_name" placeholder="Gewinnname">
+            <input type="number" name="points" placeholder="Punkte">
+            <button type="submit">Hinzufügen</button>
+        </form>
+        <button type="button" className="btn btn-default" onclick="window.location.href='/admin_dashboard'">Zurück zum Dashboard</button>
+    </div>
+</body>
+</html>
